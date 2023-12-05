@@ -14,4 +14,6 @@ def hello_world():
     return '¡Hola, mundo! Este es mi primer servidor con Flask.'
 
 if __name__ == '__main__':
-    app.run(debug=False, port=os.getenv('PORT', 5000))
+    from waitress import serve
+    print('Servidor ejecutándose en el puerto', os.getenv('PORT', 5000))
+    serve(app, port=os.getenv('PORT', 5000))
